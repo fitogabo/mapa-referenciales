@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tu Aplicación Webmapping con Mapbox</title>
+
+
+</head>
+
+<body>
+    <!-- ... contenido de tu página ... -->
+    <h1>Bienvenido a la aplicación de transacciones de suelos</h1>
+    <!-- Aquí puedes añadir tu marcado HTML para el formulario de autenticación y otros elementos de UI -->
+    <!-- Ejemplo de formulario de registro -->
+    <form id="signup-form">
+        <input type="email" id="signup-email" placeholder="Email" required>
+        <input type="password" id="signup-password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- Ejemplo de formulario de inicio de sesión -->
+    <form id="signin-form">
+        <input type="email" id="signin-email" placeholder="Email" required>
+        <input type="password" id="signin-password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+    </form>
+    <!-- ... otros scripts que necesites cargar ... -->
+
+    <div id='map' style='width: 100%; height: 400px;'></div> <!-- Contenedor para el mapa -->
+
+    <!-- Agrega un input para cargar el archivo Excel -->
+    <form id="upload-form">
+        <input type="file" id="file-upload" />
+        <button type="button" id="upload-button">Cargar archivo</button>
+    </form>
+
+    <!-- Tus scripts de aplicación -->
+    <script type="module" src="./src/scripts/firebase.js"></script>
+    <script type="module" src="./src/scripts/auth.js"></script>
+    <script type="module" src="./src/scripts/main.js"></script>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+</body>
+
+</html>

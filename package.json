@@ -1,0 +1,16 @@
+{
+  "name": "mapa-referenciales",
+  "version": "1.0.0",
+  "description": "Estamos desarrollando una aplicación de visualización webmapping, con base en tecnologías como Firebase para la base de datos en tiempo real y Mapbox para la representación cartográfica interactiva. Este proyecto utiliza JavaScript, Parcel y módulos ES6 para facilitar la estructuración del código y optimizar la colaboración entre desarrolladores. Está diseñado para publicar y administrar datos georreferenciados sobre transacciones de suelo. Como iniciativa personal, nuestro objetivo es crear una plataforma colaborativa que sirva como referencia para peritos tasadores y personas interesadas. La aplicación se centra en la entrega de una herramienta potente y fácil de usar que permite a los usuarios explorar y compartir información relevante para los peritajes de bienes inmuebles.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url ./"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "firebase": "^10.7.1",
+    "xlsx": "^0.18.5"
+  }
+}
