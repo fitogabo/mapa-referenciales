@@ -5,7 +5,7 @@ import { getDatabase } from 'firebase/database';
 
 // Tu configuración de Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyCCUpFidm_Pv1opz8AGAxGxCpMUCi-EeqU",
+    apiKey: "tuapikey",
     authDomain: "referenciales-ba5b2.firebaseapp.com",
     databaseURL: "https://referenciales-ba5b2-default-rtdb.firebaseio.com",
     projectId: "referenciales-ba5b2",
