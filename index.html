@@ -2,10 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Tu Aplicación Webmapping con Mapbox</title>
-
-
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Tu aplicación de Mapbox</title>
+    <!-- Incluyendo Mapbox GL JS CSS -->
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js'></script>
 </head>
 
 <body>
@@ -25,7 +27,9 @@
         <input type="password" id="signin-password" placeholder="Password" required>
         <button type="submit">Sign In</button>
     </form>
-    <!-- ... otros scripts que necesites cargar ... -->
+
+    <button id="signOutButton">Sign Out</button>
+    <div id="welcome-message" style="display:none;">Bienvenido, usuario!</div>
 
     <div id='map' style='width: 100%; height: 400px;'></div> <!-- Contenedor para el mapa -->
 
@@ -38,11 +42,10 @@
     <!-- Tus scripts de aplicación -->
     <script type="module" src="./src/scripts/firebase.js"></script>
     <script type="module" src="./src/scripts/auth.js"></script>
+    <script type="module" src="./src/scripts/Mapboxutility.js"></script>
     <script type="module" src="./src/scripts/main.js"></script>
 
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
 
 </body>
 
