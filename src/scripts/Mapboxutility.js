@@ -1,20 +1,43 @@
 // MapboxUtility.js
+import mapboxgl from 'mapbox-gl';
 
 // Configuración de la llave del API, reemplázala con tu llave real de Mapbox
-mapboxgl.accessToken = 'pk.eyJ1IjoiZ2Fib3BhbnRlcmEiLCJhIjoiY2xlZG52M3R2MDV4ZDNvbXJwN2hlZXZmMCJ9.T4YSPRr9Hbxp0ID5-NLkCg';
+mapboxgl.accessToken = 'aqui va mi token de mapbox';
+// Variable global dentro de este módulo para almacenar la instancia del mapa
+let map = null;
 
-// Inicializa el mapa en un elemento con el id 'map' en tu HTML
-const map = new mapboxgl.Map({
-    container: 'map', // Especifica el contenedor en el que quieres que se muestre el mapa
-    style: 'mapbox://styles/mapbox/streets-v11', // Especifica el estilo base del mapa
-    center: [-74.0060, 40.7128], // Coordenadas de inicio del mapa [lng, lat]
-    zoom: 13 // Nivel de acercamiento inicial
-});
+// Definir la función initMapbox
+function initMapbox() {
+    const mapContainer = document.getElementById('map');
+    if (mapContainer) {
+        // Vacía el contenedor del mapa si tiene algún contenido
+        mapContainer.innerHTML = '';
+    }
+
+    if (map) { // Si ya hay un mapa, asegúrate de eliminarlo
+        map.remove();
+        map = null;
+    }
+
+    // Ahora puedes estar seguro de que el contenedor está vacío y no hay otro mapa
+    map = new mapboxgl.Map({
+        container: mapContainer,
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-73.245209, -39.818272],
+        zoom: 13
+    });
+    return map;
+}
 
 // Función para cargar los datos como una capa en el mapa de Mapbox
 function loadToMapbox(data) {
+    if (!map) { // Asegúrate de que el mapa ha sido inicializado
+        console.error('El mapa no ha sido inicializado.');
+        return;
+    }
+
     // Esperar a que el mapa se cargue antes de añadir cualquier dato
-    map.on('load', () => {
+    map.on('load', function () { // Usar función anónima para no perder el contexto de `map`
         // Agrega una nueva fuente al mapa desde los datos en formato GeoJSON
         map.addSource('excelData', {
             type: 'geojson',
@@ -48,5 +71,17 @@ function loadToMapbox(data) {
     });
 }
 
+function hideMap() {
+    if (map) { // Elimina la instancia del mapa si está presente
+        map.remove();
+        map = null;
+    }
+
+    const mapContainer = document.getElementById('map');
+    if (mapContainer) {
+        mapContainer.style.display = 'none';
+        mapContainer.innerHTML = ''; // También limpia el contenedor
+    }
+}
 // Asegúrate de exportar las funciones u objetos que utilizas en otros módulos
-export { loadToMapbox };
+export { initMapbox, loadToMapbox, hideMap };
